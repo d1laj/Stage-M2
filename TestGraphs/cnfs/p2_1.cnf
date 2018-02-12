@@ -1,0 +1,18 @@
+p cnf 0 0
+c help to minisat to remove posibilities
+1 2 0
+c proper colo
+1 0
+c Graph as few edges
+3 0
+-4 0
+3 0
+c Variable for even degree
+-4 -1 0
+4 1 0
+-5 -1 -4 0
+-5 1 4 0
+5 1 -4 0
+5 -1 4 0
+-6 1 0
+6 -1 0

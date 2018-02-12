@@ -1,0 +1,5 @@
+graph {
+a[label=0]
+b[label=1]
+a -- b [style=dotted];
+}
