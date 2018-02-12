@@ -1,0 +1,18 @@
+graph {
+a -- e;
+a -- f;
+a -- g;
+a -- h;
+b -- e;
+b -- f;
+b -- g [style=dotted];
+b -- h [style=dotted];
+c -- e;
+c -- f [style=dotted];
+c -- g;
+c -- h [style=dotted];
+d -- e;
+d -- f [style=dotted];
+d -- g [style=dotted];
+d -- h;
+}

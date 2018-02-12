@@ -1,0 +1,8 @@
+graph {
+a -- b;
+a -- c;
+a -- d [style=dotted];
+b -- c [style=dotted];
+b -- d [style=dotted];
+c -- d [style=dotted];
+}
