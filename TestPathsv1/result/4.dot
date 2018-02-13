@@ -1,9 +1,10 @@
 graph {
 a[label=0]
 b[label=1]
-c[label=2]
-d[label=0]
+c[label=0]
+d[label=1]
 a -- b [style=dotted];
 b -- c [style=dotted];
 c -- d [style=dotted];
+a -- d [style=dotted];
 }

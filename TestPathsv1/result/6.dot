@@ -4,10 +4,11 @@ b[label=1]
 c[label=0]
 d[label=2]
 e[label=1]
-f[label=3]
+f[label=2]
 a -- b [style=dotted];
 b -- c [style=dotted];
 c -- d [style=dotted];
 d -- e [style=dotted];
-e -- f;
+e -- f [style=dotted];
+a -- f [style=dotted];
 }

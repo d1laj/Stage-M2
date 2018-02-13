@@ -1,35 +1,37 @@
-#ifndef PATH_HPP
-#define PATH_HPP
+#ifndef CYCLE_HPP
+#define CYCLE_HPP
 
 #include <algorithm>
 #include <array>
 #include <fstream>
 #include <iostream>
 
-#ifndef CYCLE_HPP
+#ifndef PATH_HPP
 inline int min(int a, int b) { return (a < b) ? a : b; }
 #endif
-struct Path;
-std::ostream &operator<<(std::ostream &os, Path &G);
 
-struct Path {
+inline int mod(int x, int m) { return (x < 0 ? ((x % m) + m) % m : x % m); }
+
+struct Cycle;
+std::ostream &operator<<(std::ostream &os, Cycle &G);
+
+struct Cycle {
   int n;
   std::vector<int> edges;
   std::vector<int> color;
   bool end = false;
 
-  Path(int _n) : n(_n) {
-    edges.resize(n - 1);
+  Cycle(int _n) : n(_n) {
+    edges.resize(n);
     color.resize(n);
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
       edges[i] = 0;
       color[i] = 0;
     }
-    color[n - 1] = 0;
   }
 
-  Path &operator++() {
-    for (int i = n - 2; i >= 0; i--) {
+  Cycle &operator++() {
+    for (int i = n - 1; i >= 0; i--) {
       if (i == 0) {
         end = true;
         break;
@@ -63,13 +65,13 @@ struct Path {
     for (int k = 0; k < K; k++) {
       for (int j = k + 1; j < K; j++) {
         bool state = false;
-        for (int l = 0; l < n - 1 && !state; l++) {
-          if (color[l] == k && color[l + 1] == j) {
+        for (int l = 0; l < n && !state; l++) {
+          if (color[l] == k && color[(l + 1) % n] == j) {
             state = true;
           }
         }
-        for (int l = 1; l < n && !state; l++) {
-          if (color[l] == k && color[l - 1] == j) {
+        for (int l = 0; l < n && !state; l++) {
+          if (color[(l + 1) % n] == k && color[l] == j) {
             state = true;
           }
         }
@@ -77,20 +79,20 @@ struct Path {
           if (color[u] == k) {
             for (int v = 0; v < n && !state; v++) {
               if (color[v] == j) {
-                if (u > 0 && v > 0 && color[u - 1] == color[v - 1] &&
-                    edges[u - 1] != edges[v - 1]) {
+                if (color[mod(u - 1, n)] == color[mod(v - 1, n)] &&
+                    edges[mod(u - 1, n)] != edges[mod(v - 1, n)]) {
                   state = true;
                 }
-                if (u < n - 1 && v > 0 && color[u + 1] == color[v - 1] &&
-                    edges[u] != edges[v - 1]) {
+                if (color[(u + 1) % n] == color[mod(v - 1, n)] &&
+                    edges[u] != edges[mod(v - 1, n)]) {
                   state = true;
                 }
-                if (v < n - 1 && u < n - 1 && color[u + 1] == color[v + 1] &&
+                if (color[(u + 1) % n] == color[(v + 1) % n] &&
                     edges[u] != edges[v]) {
                   state = true;
                 }
-                if (0 < u && v < n - 1 && color[u - 1] == color[v + 1] &&
-                    edges[u - 1] != edges[v]) {
+                if (color[mod(u - 1, n)] == color[(v + 1) % n] &&
+                    edges[mod(u - 1, n)] != edges[v]) {
                   state = true;
                 }
               }
@@ -112,37 +114,48 @@ struct Path {
         return false;
       }
     }
+    if (i == n && color[0] == color[n - 1]) {
+      return false;
+    }
     for (int u = 0; u < i; u++) {
       for (int v = u + 2; v < i; v++) {
         if (color[u] == color[v] && u != v) {
-          if (u > 0 && color[u - 1] == color[v - 1] &&
-              edges[u - 1] != edges[v - 1]) {
+          if ((u > 0 || i == n) &&
+              color[mod(u - 1, n)] == color[mod(v - 1, n)] &&
+              edges[mod(u - 1, n)] != edges[mod(v - 1, n)]) {
             return false;
           }
-          if (u < i - 1 && color[u + 1] == color[v - 1] &&
-              edges[u] != edges[v - 1]) {
+          if (color[(u + 1) % n] == color[mod(v - 1, n)] &&
+              edges[u] != edges[mod(v - 1, n)]) {
             return false;
           }
-          if (v < i - 1 && color[u + 1] == color[v + 1] &&
+          if ((v < i - 1 || i == n) &&
+              color[(u + 1) % n] == color[(v + 1) % n] &&
               edges[u] != edges[v]) {
             return false;
           }
-          if (0 < u && v < i - 1 && color[u - 1] == color[v + 1] &&
-              edges[u - 1] != edges[v]) {
+          if (((u > 0 && v < i - 1) || i == n) &&
+              color[mod(u - 1, n)] == color[(v + 1) % n] &&
+              edges[mod(u - 1, n)] != edges[v]) {
             return false;
           }
         }
       }
+    }
+    if (i == n) {
+      return has_p_colors(K, K);
     }
     return true;
   }
 
   int coloring(int K_min) {
     int Kmax = 0;
-    Path Gmax = *this;
-    for (int K = K_min; K <= 4; K++) {
+    Cycle Gmax = *this;
+    // std::cout << *this;
+    bool once = false;
+    for (int K = K_min; K <= n; K++) {
       // std::cout << "loop\n";
-      // std::cout << K << std::endl;
+      // std::cout << K;
       // std::cout << Gmax;
       if (Kmax == K) {
         continue;
@@ -151,8 +164,12 @@ struct Path {
       color[u] = 0;
       bool iscolorable = false;
       while (1) {
-        // std::cout << "insidewhile " << K << " " <<  u << "\n" << *this <<
+        // std::cout << "insidewhile " << K << " " << u << "\n"; //<< *this <<
         // '\n';
+        for (int i = 0; i < n; i++) {
+          // std::cout << color[i] << " ";
+        }
+        // std::cout << '\n';
         if (u == 0 && color[u] >= min(u + 1, K)) {
           // std::cout << "breakcond\n";
           break;
@@ -160,6 +177,10 @@ struct Path {
         if (u == n && is_complete_coloration(K)) {
           // std::cout << "complete\n";
           iscolorable = true;
+          if (K == 4 && once) {
+            once = false;
+            std::cout << "colo:\n" << *this;
+          }
           Kmax = K;
           Gmax = *this;
           break;
@@ -167,6 +188,10 @@ struct Path {
         if (u == n && colorable(K, n)) {
           // std::cout << "u=n\n";
           iscolorable = true;
+          if (K == 4 && once) {
+            once = false;
+            std::cout << "colo:\n" << *this;
+          }
           u--;
           color[u]++;
           continue;
@@ -189,11 +214,17 @@ struct Path {
           color[u]++;
         }
       }
-      if (Kmax != K && iscolorable) {
+      if (Kmax != K && iscolorable && false) {
         *this = Gmax;
+        // std::cout << "-->" << Kmax << '\n';
         return Kmax;
+      } else if (iscolorable) {
+        // std::cout << K;
       }
+      // std::cout << " " << iscolorable << '\n';
     }
+    // std::cout << "->" << Kmax << '\n';
+
     *this = Gmax;
     return Kmax;
   }
@@ -212,13 +243,19 @@ struct Path {
              << " [style=dotted];\n";
       }
     }
+    if (edges[n - 1] == 1) {
+      file << (char)('a' + 0) << " -- " << (char)('a' + n - 1) << ";\n";
+    } else {
+      file << (char)('a' + 0) << " -- " << (char)('a' + n - 1)
+           << " [style=dotted];\n";
+    }
     file << "}\n";
     file.close();
   }
 };
 
-std::ostream &operator<<(std::ostream &os, Path &G) {
-  for (int i = 0; i < G.n - 1; i++) {
+std::ostream &operator<<(std::ostream &os, Cycle &G) {
+  for (int i = 0; i < G.n; i++) {
     os << G.edges[i] << " ";
   }
   os << "\n";

@@ -1,17 +1,18 @@
 graph {
 a[label=0]
 b[label=1]
-c[label=2]
-d[label=0]
-e[label=3]
-f[label=4]
-g[label=1]
+c[label=0]
+d[label=2]
+e[label=1]
+f[label=3]
+g[label=2]
 h[label=3]
 a -- b [style=dotted];
 b -- c [style=dotted];
 c -- d [style=dotted];
 d -- e [style=dotted];
 e -- f [style=dotted];
-f -- g;
-g -- h;
+f -- g [style=dotted];
+g -- h [style=dotted];
+a -- h [style=dotted];
 }
