@@ -1,14 +1,14 @@
 graph {
 a[label=0]
 b[label=1]
-c[label=2]
-d[label=0]
-e[label=3]
-f[label=1]
-g[label=4]
-h[label=2]
-i[label=3]
-j[label=4]
+c[label=0]
+d[label=1]
+e[label=2]
+f[label=0]
+g[label=3]
+h[label=1]
+i[label=2]
+j[label=3]
 a -- b [style=dotted];
 b -- c [style=dotted];
 c -- d [style=dotted];
@@ -18,5 +18,4 @@ f -- g [style=dotted];
 g -- h [style=dotted];
 h -- i [style=dotted];
 i -- j [style=dotted];
-a -- j [style=dotted];
 }

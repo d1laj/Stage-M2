@@ -20,5 +20,4 @@ g -- h [style=dotted];
 h -- i [style=dotted];
 i -- j [style=dotted];
 j -- k [style=dotted];
-a -- k [style=dotted];
 }

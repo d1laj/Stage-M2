@@ -1,0 +1,22 @@
+graph {
+a[label=0]
+b[label=1]
+c[label=2]
+d[label=0]
+e[label=3]
+f[label=1]
+g[label=2]
+h[label=3]
+i[label=4]
+j[label=5]
+a -- b [style=dotted];
+b -- c;
+c -- d [style=dotted];
+d -- e;
+e -- f [style=dotted];
+f -- g;
+g -- h [style=dotted];
+h -- i;
+i -- j [style=dotted];
+a -- j;
+}

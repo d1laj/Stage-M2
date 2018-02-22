@@ -55,7 +55,7 @@ struct Cycle {
         nb++;
       }
     }
-    return nb == p;
+    return nb >= p;
   }
 
   bool is_complete_coloration(int K) {
@@ -142,20 +142,25 @@ struct Cycle {
         }
       }
     }
-    if (i == n) {
-      return has_p_colors(K, K);
-    }
-    return true;
+    // if (i == n) {
+    return has_p_colors(K, K - n + i);
+    //}
+    // return true;
   }
 
-  int coloring(int K_min) {
+  int coloring() {
     int Kmax = 0;
     Cycle Gmax = *this;
     // std::cout << *this;
     bool once = false;
-    for (int K = K_min; K <= n; K++) {
-      // std::cout << "loop\n";
+    for (int K = n; K >= 1; K--) {
+      std::cout << n << " k test:" << K << '\n';
       // std::cout << K;
+      int reponse = true;
+      // std::cin >> reponse;
+      if (!reponse) {
+        continue;
+      }
       // std::cout << Gmax;
       if (Kmax == K) {
         continue;
@@ -163,9 +168,18 @@ struct Cycle {
       int u = 0;
       color[u] = 0;
       bool iscolorable = false;
+      int count = 0;
       while (1) {
         // std::cout << "insidewhile " << K << " " << u << "\n"; //<< *this <<
         // '\n';
+        count++;
+        if (count % 1000000 == 0) {
+          for (int i = 0; i < n; i++) {
+            std::cout << color[i] << " ";
+          }
+          std::cout << '\n';
+        }
+
         for (int i = 0; i < n; i++) {
           // std::cout << color[i] << " ";
         }
@@ -183,7 +197,8 @@ struct Cycle {
           }
           Kmax = K;
           Gmax = *this;
-          break;
+          return K;
+          // break;
         }
         if (u == n && colorable(K, n)) {
           // std::cout << "u=n\n";
@@ -251,6 +266,14 @@ struct Cycle {
     }
     file << "}\n";
     file.close();
+  }
+
+  static Cycle An(int n) {
+    Cycle G(n);
+    for (int i = 0; i < n; i++) {
+      G.edges[i] = i % 2;
+    }
+    return G;
   }
 };
 
