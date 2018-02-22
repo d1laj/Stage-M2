@@ -103,15 +103,16 @@ unsigned to_int(VariableType t) { return static_cast<unsigned>(t); }
 struct VariableOffsets {
   std::array<unsigned, static_cast<unsigned>(VariableType::NumberOfTypes)>
       varOffs;
-  int N;
+  const int N;
 
   VariableOffsets(int _N) : N(_N) { fillOffsets(); }
+
   auto &operator[](const int i) { return varOffs[i]; }
 
   int fillOffsets() {
     int offset = 1;
     int index = 0;
-    varOffs[index++] = 0;
+    varOffs[index++] = offset;
 
     // CC
     for (int K = 1; K <= N; K++) {
@@ -180,15 +181,12 @@ struct VariableOffsets {
       }
     }
     varOffs[index++] = offset;
-
     // Y
     for (VertexPair vp(N); !vp.is_end(); vp++) {
       for (ColorPair ij(N); !ij.is_end(); ij++) {
         offset += 2;
       }
     }
-    varOffs[index++] = offset;
-
     return 0;
   }
 
@@ -239,7 +237,7 @@ struct VariableOffsets {
   Literal index(VariableType vt, ColorPair cp, int k) {
     switch (vt) {
     case VariableType::X:
-      return varOffs[to_int(vt)] + cp.index() * N +
+      return varOffs[to_int(vt)] + cp.index() * (N - 2) +
              (k < cp.i ? k : (k < cp.j ? k - 1 : k - 2));
     case VariableType::Comp:
       return varOffs[to_int(vt)] + cp.index() * N + k;
@@ -259,6 +257,85 @@ struct VariableOffsets {
       return Literal(0);
     }
   }
+
+  void test_indices() {
+    std::cout << "CC\n";
+    for (int i = 0; i < N; i++) {
+      std::cout << "CC " << i << " is " << index(VariableType::CC, i) << "\n";
+    }
+
+    std::cout << "\nV\n";
+    for (int u = 0; u < N; u++) {
+      for (int i = 0; i < N; i++) {
+        std::cout << "V " << u << " " << i << " is "
+                  << index(VariableType::V, u, i) << "\n";
+      }
+    }
+
+    std::cout << "\nEdge\n";
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      std::cout << "Edge " << vp.u << " " << vp.v << " is "
+                << index(VariableType::Edge, vp) << "\n";
+    }
+
+    std::cout << "\nEdgeSign\n";
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      std::cout << "EdgeSign " << vp.u << " " << vp.v << " is "
+                << index(VariableType::EdgeSign, vp) << "\n";
+    }
+
+    std::cout << "\nHom\n";
+    for (ColorPair cp(N); !cp.is_end(); cp++) {
+      std::cout << "Hom " << cp.i << " " << cp.j << " is "
+                << index(VariableType::Hom, cp) << "\n";
+    }
+
+    std::cout << "\nEdgeSign\n";
+    for (ColorPair cp(N); !cp.is_end(); cp++) {
+      std::cout << "HomSign " << cp.i << " " << cp.j << " is "
+                << index(VariableType::HomSign, cp) << "\n";
+    }
+
+    std::cout << "Color\n";
+    for (int i = 0; i < N; i++) {
+      std::cout << "Color " << i << " is " << index(VariableType::Color, i)
+                << "\n";
+    }
+
+    std::cout << "\nX\n";
+    for (ColorPair cp(N); !cp.is_end(); cp++) {
+      for (int k = 0; k < N; k++) {
+        if (k != cp.i && k != cp.j) {
+          std::cout << "X " << cp.i << " " << cp.j << " " << k << " is "
+                    << index(VariableType::X, cp, k) << "\n";
+        }
+      }
+    }
+
+    std::cout << "Complete\n";
+    for (int i = 0; i < N; i++) {
+      std::cout << "Complete " << i << " is "
+                << index(VariableType::Complete, i) << "\n";
+    }
+
+    std::cout << "\nComp\n";
+    for (ColorPair cp(N); !cp.is_end(); cp++) {
+      for (int k = 0; k < N; k++) {
+        std::cout << "Comp " << cp.i << " " << cp.j << " " << k << " is "
+                  << index(VariableType::Comp, cp, k) << "\n";
+      }
+    }
+
+    std::cout << "\nY\n";
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      for (ColorPair cp(N); !cp.is_end(); cp++) {
+        std::cout << "Y- " << vp.u << " " << vp.v << " " << cp.i << " " << cp.j
+                  << " is " << index(VariableType::Y, vp, cp, false) << "\n";
+        std::cout << "Y+ " << vp.u << " " << vp.v << " " << cp.i << " " << cp.j
+                  << " is " << index(VariableType::Y, vp, cp, true) << "\n";
+      }
+    }
+  }
 };
 /*
 enum class VariableType {
@@ -272,6 +349,7 @@ enum class VariableType {
   X,        // Helper : does i and j clash through k
   Complete, // Does the first i color are complete (forget the other colors)
   Comp,     // Does i and j are complete using the first k colors.
+  Y, // Does edge u has i-j with sign
   NumberOfTypes
 };
 */

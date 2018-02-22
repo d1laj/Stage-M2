@@ -13,9 +13,9 @@
 #include "Variable.hpp"
 
 struct Graph {
-  int N;
+  const int N;
   VariableOffsets vo;
-  Graph(int _N) : N(_N), vo(N) {}
+  Graph(int _N) : N(_N), vo(_N) {}
 
   void generate_colo_rules(std::ofstream &file) {
     file << "c ---------------------------\n";
@@ -87,7 +87,7 @@ struct Graph {
 
     for (VertexPair vp(N); !vp.is_end(); vp++) {
       file << vo.index(VariableType::Edge, vp)
-           << vo.index(VariableType::EdgeSign, vp);
+           << vo.index(VariableType::EdgeSign, vp) << End;
     }
   }
 
@@ -276,7 +276,7 @@ struct Graph {
 
     for (int k = 1; k < N; k++) {
       for (ColorPair cp(k + 1); !cp.is_end(); cp++) {
-        file << -vo.index(VariableType::Comp, k - 1)
+        file << -vo.index(VariableType::Comp, cp, k - 1)
              << vo.index(VariableType::Comp, cp, k) << End;
         if (cp.i == k || cp.j == k) {
           for (int l = 0; l < k; l++) {
@@ -293,7 +293,7 @@ struct Graph {
 
       for (ColorPair cp(k + 1); !cp.is_end(); cp++) {
         if (cp.i == k || cp.j == k) {
-          file << vo.index(VariableType::Comp, k - 1);
+          file << vo.index(VariableType::Comp, cp, k - 1);
           for (int l = 0; l < k; l++) {
             if (l != cp.i && l != cp.j) {
               file << vo.index(VariableType::X, cp, l);
@@ -302,7 +302,7 @@ struct Graph {
           file << -vo.index(VariableType::Comp, cp, k) << End;
         } else {
           file << vo.index(VariableType::X, cp, k)
-               << vo.index(VariableType::Comp, k - 1)
+               << vo.index(VariableType::Comp, cp, k - 1)
                << -vo.index(VariableType::Comp, cp, k) << End;
         }
       }

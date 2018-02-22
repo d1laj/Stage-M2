@@ -6,8 +6,8 @@ using namespace std;
 
 int main() {
   cout << "Test\n";
-  Cycle C(6, true);
-
+  Cycle C(4, true);
+  C.vo.test_indices();
   C.generate("test.cnf");
   C.minisat("test.cnf", "test.sol", 0);
 }
