@@ -17,12 +17,12 @@ struct Cycle : public Graph {
         file << -vo.index(VariableType::Edge, vp) << End;
       } else {
         file << vo.index(VariableType::Edge, vp) << End;
-      }
-      if (an) {
-        if (vp.u % 2 == 0 && vp.v != N - 1) {
-          file << vo.index(VariableType::EdgeSign, vp) << End;
-        } else {
-          file << -vo.index(VariableType::EdgeSign, vp) << End;
+        if (an) {
+          if (vp.u % 2 == 0 && (vp.u != 0 || vp.v != N - 1)) {
+            file << vo.index(VariableType::EdgeSign, vp) << End;
+          } else {
+            file << -vo.index(VariableType::EdgeSign, vp) << End;
+          }
         }
       }
     }

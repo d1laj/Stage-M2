@@ -95,6 +95,11 @@ struct Graph {
     file << "c ---------------------------\n";
     file << "c definition of variables Hom and HomSign\n";
 
+    for (ColorPair cp(N); !cp.is_end(); cp++) {
+      file << vo.index(VariableType::Hom, cp)
+           << vo.index(VariableType::HomSign, cp) << End;
+    }
+
     for (VertexPair vp(N); !vp.is_end(); vp++) {
       for (ColorPair cp(N); !cp.is_end(); cp++) {
         file << -vo.index(VariableType::Edge, vp)
@@ -133,14 +138,14 @@ struct Graph {
       file << -vo.index(VariableType::Hom, cp)
            << -vo.index(VariableType::HomSign, cp);
       for (VertexPair vp(N); !vp.is_end(); vp++) {
-        file << -vo.index(VariableType::Y, vp, cp, true);
+        file << vo.index(VariableType::Y, vp, cp, true);
       }
       file << End;
 
       file << -vo.index(VariableType::Hom, cp)
            << vo.index(VariableType::HomSign, cp);
       for (VertexPair vp(N); !vp.is_end(); vp++) {
-        file << -vo.index(VariableType::Y, vp, cp, false);
+        file << vo.index(VariableType::Y, vp, cp, false);
       }
       file << End;
     }
@@ -172,23 +177,25 @@ struct Graph {
       for (int k = 0; k < N; k++) {
         if (k != cp.i && k != cp.j) {
           file << -vo.index(VariableType::X, cp, k)
-               << -vo.index(VariableType::Hom, ColorPair(cp.i, k)) << End;
+               << -vo.index(VariableType::Hom, ColorPair(N, cp.i, k)) << End;
           file << -vo.index(VariableType::X, cp, k)
-               << -vo.index(VariableType::Hom, ColorPair(cp.j, k)) << End;
+               << -vo.index(VariableType::Hom, ColorPair(N, cp.j, k)) << End;
 
           file << -vo.index(VariableType::X, cp, k)
-               << -vo.index(VariableType::HomSign, ColorPair(cp.i, k))
-               << -vo.index(VariableType::HomSign, ColorPair(cp.j, k)) << End;
+               << -vo.index(VariableType::HomSign, ColorPair(N, cp.i, k))
+               << -vo.index(VariableType::HomSign, ColorPair(N, cp.j, k))
+               << End;
           file << -vo.index(VariableType::X, cp, k)
-               << vo.index(VariableType::HomSign, ColorPair(cp.i, k))
-               << vo.index(VariableType::HomSign, ColorPair(cp.j, k)) << End;
+               << vo.index(VariableType::HomSign, ColorPair(N, cp.i, k))
+               << vo.index(VariableType::HomSign, ColorPair(N, cp.j, k)) << End;
 
           file << vo.index(VariableType::X, cp, k)
-               << -vo.index(VariableType::HomSign, ColorPair(cp.i, k))
-               << vo.index(VariableType::HomSign, ColorPair(cp.j, k)) << End;
+               << -vo.index(VariableType::HomSign, ColorPair(N, cp.i, k))
+               << vo.index(VariableType::HomSign, ColorPair(N, cp.j, k)) << End;
           file << vo.index(VariableType::X, cp, k)
-               << vo.index(VariableType::HomSign, ColorPair(cp.i, k))
-               << -vo.index(VariableType::HomSign, ColorPair(cp.j, k)) << End;
+               << vo.index(VariableType::HomSign, ColorPair(N, cp.i, k))
+               << -vo.index(VariableType::HomSign, ColorPair(N, cp.j, k))
+               << End;
         }
       }
     }
