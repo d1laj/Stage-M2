@@ -28,9 +28,17 @@ struct Path {
     color[n - 1] = 0;
   }
 
+  int nb_neg() {
+    int count = 0;
+    for (int i = 0; i < n - 1; i++) {
+      if (!edges[i])
+        count++;
+    }
+    return count;
+  }
   Path &operator++() {
     for (int i = n - 2; i >= 0; i--) {
-      if (i == 0) {
+      if (i == 0 && edges[0] == 1) {
         end = true;
         break;
       }
@@ -214,6 +222,37 @@ struct Path {
     }
     file << "}\n";
     file.close();
+  }
+
+  void latex() {
+    if (n != 8) {
+      return;
+    }
+    std::cout
+        << "\\subfloat{\n\t\\begin{tikzpicture}\n\t\t\\tikzstyle{n} = [ draw, "
+           "circle, minimum size = 1mm, text centered ];\n\t\t\\tikzstyle{g} "
+           "= [ ForestGreen, line width = 1pt ];\n\t\t\\tikzstyle{r} = [ red, "
+           "line width = 1pt ];\n\n ";
+
+    std::cout << "\t\t\\node[n] (0) at(0, 0) {" << color[0] << "};\n";
+    std::cout << "\t\t\\node[n] (1) at(2, 0) {" << color[1] << "};\n";
+    std::cout << "\t\t\\node[n] (2) at(4, 0) {" << color[2] << "};\n";
+    std::cout << "\t\t\\node[n] (3) at(6, 0) {" << color[3] << "};\n";
+    std::cout << "\t\t\\node[n] (4) at(8, 0) {" << color[4] << "};\n";
+    std::cout << "\t\t\\node[n] (5) at(10, 0) {" << color[5] << "};\n";
+    std::cout << "\t\t\\node[n] (6) at(12, 0) {" << color[6] << "};\n";
+    std::cout << "\t\t\\node[n] (7) at(14, 0) {" << color[7] << "};\n";
+
+    for (int i = 0; i < n - 1; i++) {
+      std::cout << "\t\t\\draw(" << i << ") edge[";
+      if (edges[i]) {
+        std::cout << "g";
+      } else {
+        std::cout << "r";
+      }
+      std::cout << "](" << i + 1 << ");\n";
+    }
+    std::cout << "\t\\end {tikzpicture}\n}\n\n";
   }
 };
 

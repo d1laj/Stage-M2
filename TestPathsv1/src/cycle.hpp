@@ -153,7 +153,7 @@ struct Cycle {
     Cycle Gmax = *this;
     // std::cout << *this;
     bool once = false;
-    for (int K = K_min; K <= n; K++) {
+    for (int K = K_min; K <= 4; K++) {
       // std::cout << "loop\n";
       // std::cout << K;
       // std::cout << Gmax;
