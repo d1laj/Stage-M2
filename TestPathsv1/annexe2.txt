@@ -1,0 +1,2411 @@
+
+
+
+\begin{figure}
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\caption{Signature with 0 negative edges}
+\label{P8cases-0}
+\end{figure}
+
+
+
+\begin{figure}
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\caption{Signature with 1 negative edges}
+\label{P8cases-1}
+\end{figure}
+
+
+
+\begin{figure}
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\caption{Signature with 2 negative edges}
+\label{P8cases-2}
+\end{figure}
+
+
+
+\begin{figure}
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\caption{Signature with 3 negative edges}
+\label{P8cases-3}
+\end{figure}
+
+
+
+\begin{figure}
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[r](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {3};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {2};
+		\node[n] (7) at(14, 0) {1};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {2};
+		\node[n] (3) at(6, 0) {0};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {0};
+		\draw(0) edge[g](1);
+		\draw(1) edge[r](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[g](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {2};
+		\node[n] (6) at(12, 0) {1};
+		\node[n] (7) at(14, 0) {3};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[g](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {0};
+		\node[n] (5) at(10, 0) {1};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[g](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {2};
+		\node[n] (4) at(8, 0) {1};
+		\node[n] (5) at(10, 0) {3};
+		\node[n] (6) at(12, 0) {0};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[r](3);
+		\draw(3) edge[g](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\subfloat{
+	\begin{tikzpicture}
+		\tikzstyle{n} = [ draw, circle, minimum size = 1mm, text centered ];
+		\tikzstyle{g} = [ ForestGreen, line width = 1pt ];
+		\tikzstyle{r} = [ red, line width = 1pt ];
+
+ 		\node[n] (0) at(0, 0) {0};
+		\node[n] (1) at(2, 0) {1};
+		\node[n] (2) at(4, 0) {0};
+		\node[n] (3) at(6, 0) {1};
+		\node[n] (4) at(8, 0) {2};
+		\node[n] (5) at(10, 0) {0};
+		\node[n] (6) at(12, 0) {3};
+		\node[n] (7) at(14, 0) {2};
+		\draw(0) edge[g](1);
+		\draw(1) edge[g](2);
+		\draw(2) edge[g](3);
+		\draw(3) edge[r](4);
+		\draw(4) edge[r](5);
+		\draw(5) edge[r](6);
+		\draw(6) edge[r](7);
+	\end {tikzpicture}
+}
+
+\caption{Signature with 4 negative edges}
+\label{P8cases-4}
+\end{figure}

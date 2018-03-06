@@ -18,7 +18,7 @@ int h(int n) {
 constexpr int timeout = 0;
 constexpr int nmax = 15;
 constexpr bool test_path = false;
-constexpr bool test_cycle = true;
+constexpr bool test_cycle = false;
 
 std::string make_name(int n, int m, bool underscore) {
   std::string type = "g";

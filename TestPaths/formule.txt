@@ -1,0 +1,41 @@
+G is a colored path
+T
+
+G is colored
+Ou_k V(u,k)
+Non V(u,i) ou Non V(u,j)
+
+Gc coresp to color of G
+
+V(u,i) et V(u+1,j) -> Ec(i,j,a)
+V(u,i) et V(u+1,j) -> non Ec(i,j,s) ou E(u,u+1)
+V(u,i) et V(u+1,j) -> Ec(i,j,s) ou non E(u,u+1)
+
+Ec(i,j,a) && Ec(i,j,s) -> Ou_u( V(u,i) et V(u+1,j) et E(u,u+1)) ou  Ou_u( V(u,j) et V(u+1,i) et E(u,u+1))
+Ec(i,j,a) && -Ec(i,j,s) -> Ou_u( V(u,i) et V(u+1,j) et -E(u,u+1)) ou  Ou_u( V(u,j) et V(u+1,i) et -E(u,u+1))
+deviens
+X_u_i_j_+ -> V(u,i)
+X_u_i_j_+ -> V(u+1,j)
+X_u_i_j_+ -> E(u,u+1)
+X_u_i_j_+ ou non V(u,i) ou non V(u+1,j) ou non E(u,u+1)
+X_u_i_j_- -> V(u,i)
+X_u_i_j_- -> V(u+1,j)
+X_u_i_j_- -> -E(u,u+1)
+X_u_i_j_- ou non V(u,i) ou non V(u+1,j) ou E(u,u+1)
+Ec(i,j,a) && Ec(i,j,s) -> Ou_u X_u_i_j+ ou X_u_j_i+
+Ec(i,j,a) && -Ec(i,j,s) -> Ou_u X_u_i_j- ou X_u_i_j-
+
+
+Gc is corectly colored
+non V(u,i) ou non V(u+1,i)
+
+-Ec(i,j,a) -> Ou_l W_i_j_l
+W_i_j_l <-> Ec(i,l,a) & Ec(j,l,a) & Ec(i,l,s) != Ec(j,l,s)
+
+
+All k colors
+Ou_u V(u,i)
+
+
+NB var = n-1   +  n*K   + K(K-1) * 2  + 2 * (n-1) * (K*K-K)
+NB clauses = n + n * K(K-1)/2 + K*(K-1) + (n-1)*(K*K -K) * 3  +2 * (n-1) * (K*K-K)*4 + K*(K-1)

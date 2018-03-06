@@ -1,13 +1,15 @@
+#include "cycle.hpp"
 #include "path.hpp"
 #include <iostream>
 
 using namespace std;
+using namespace cycle;
 
-constexpr int n = 3;
+constexpr int n = 4;
 
 int test_indices() {
   int K = 3;
-  for (int u = 0; u < n - 1; u++) {
+  for (int u = 0; u < n; u++) {
     cout << edge_id(u);
   }
   cout << '\n';
@@ -25,7 +27,7 @@ int test_indices() {
   }
   cout << '\n';
 
-  for (int u = 0; u < n - 1; u++) {
+  for (int u = 0; u < n; u++) {
     for (int i = 0; i < K; i++) {
       for (int j = 0; j < K; j++) {
         if (i != j) {
@@ -54,53 +56,39 @@ int test_indices() {
 
 int main() {
   // test_indices();
-  for (int n = 16; n < 17; n++) {
+  for (int n = 4; n < 55; n += 2) {
     int kmax = 1;
-    bool bigenough = false;
     for (int k = 1; k <= n; k++) {
-      Path P(n, k);
-      P.generate("cnfs/" + std::to_string(n) + "_" + to_string(k) + ".cnf");
+      cycle::Cycle P(n, k, true);
+      P.generate("cnfs/an" + std::to_string(n) + "_" + to_string(k) + ".cnf");
       bool res = P.minisat(
-          "cnfs/" + std::to_string(n) + "_" + to_string(k) + ".cnf",
-          "cnfs/sol" + std::to_string(n) + "_" + to_string(k) + ".txt", 0);
+          "cnfs/an" + std::to_string(n) + "_" + to_string(k) + ".cnf",
+          "cnfs/solan" + std::to_string(n) + "_" + to_string(k) + ".txt", 60);
       cout << n << " " << k << " " << res << endl << endl;
 
-      if (!res && bigenough) {
-        break;
-      } else {
-        bigenough = true;
+      if (res) {
         kmax = k;
       }
     }
 
-    for (int i = 1; i < kmax; i++) {
-      int pid = fork();
-      if (pid == 0) {
-        execl(
-            "/bin/rm", "rm",
-            ("cnfs/sol" + std::to_string(n) + "_" + to_string(i) + ".txt")
-                .c_str(),
-            ("cnfs/" + std::to_string(n) + "_" + to_string(i) + ".cnf").c_str(),
-            (char *)0);
+    for (int i = 1; i <= n; i++) {
+      if (i != kmax && true) {
+        int pid = fork();
+        if (pid == 0) {
+          execl("/bin/rm", "rm",
+                ("cnfs/solan" + std::to_string(n) + "_" + to_string(i) + ".txt")
+                    .c_str(),
+                ("cnfs/an" + std::to_string(n) + "_" + to_string(i) + ".cnf")
+                    .c_str(),
+                (char *)0);
+        }
+        wait(0);
       }
-      wait(0);
     }
 
-    int pid = fork();
-    if (pid == 0) {
-      execl(
-          "/bin/rm", "rm",
-          ("cnfs/sol" + std::to_string(n) + "_" + to_string(kmax + 1) + ".txt")
-              .c_str(),
-          ("cnfs/" + std::to_string(n) + "_" + to_string(kmax + 1) + ".cnf")
-              .c_str(),
-          (char *)0);
-    }
-    wait(0);
-
-    Path P(n, kmax);
-    P.to_graph("cnfs/sol" + std::to_string(n) + "_" + to_string(kmax) + ".txt",
-               "result/dot" + std::to_string(n) + "_" + to_string(kmax) +
-                   ".dot");
+    cycle::Cycle P(n, kmax, true);
+    P.to_graph(
+        "cnfs/solan" + std::to_string(n) + "_" + to_string(kmax) + ".txt",
+        "result/dotan" + std::to_string(n) + "_" + to_string(kmax) + ".dot");
   }
 }

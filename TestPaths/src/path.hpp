@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+namespace path {
 inline int min(int a, int b) { return (a < b) ? a : b; }
 inline int max(int a, int b) { return (a > b) ? a : b; }
 
@@ -269,7 +270,7 @@ struct Path {
     ifile.close();
   }
 };
-
+} // namespace path
 /*
 void save(std::string filename) {
     std::ofstream file(filename);
