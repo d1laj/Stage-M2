@@ -24,8 +24,16 @@ template <bool isTwoColo, int k> struct KStarPath : public Graph<isTwoColo> {
   }
 
   virtual std::string name() {
-    return "path_" + std::to_string(this->N) + "_" + std::to_string(this->K) +
-           "_" + (isTwoColo ? "tc" : "s");
+    std::string str = std::to_string(k) + "starpath_" +
+                      std::to_string(this->N) + "_" + std::to_string(this->K) +
+                      "_" + (isTwoColo ? "tc" : "s");
+    int t = 0;
+    for (int i = k - 1; i >= 0; i--) {
+      t += legs[i];
+      str += std::to_string(legs[i]) + "_";
+    }
+    str += std::to_string(this->N - t);
+    return str;
   }
 };
 
