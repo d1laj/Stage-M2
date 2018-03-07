@@ -11,6 +11,7 @@
 #include <unistd.h>
 
 #include "Variable.hpp"
+#include "param.hpp"
 
 template <bool isTwoColo, bool edges = false> struct Graph {
   const int N;
@@ -384,6 +385,14 @@ template <bool isTwoColo, bool edges = false> struct Graph {
     }
   }
 
+  void generate_help(std::ofstream &file) {
+    for (int i = 0; i < N; i++) {
+      for (int k = i + 1; k < N; k++) {
+        file << -vo.index(VariableType::V, i, k) << End;
+      }
+    }
+  }
+
   void generate_graph_clauses(std::ofstream &file) {
     file << "p cnf 0 0\n";
     generate_cc_definition(file);
@@ -395,17 +404,18 @@ template <bool isTwoColo, bool edges = false> struct Graph {
     generate_hom_definition(file);
     generate_X_definition(file);
     generate_Y_definition(file);
+    generate_help(file);
   }
 
-  void generate(std::string filename) {
+  virtual void generate(std::string filename) {
     std::ofstream file;
     file.open(filename);
     generate_graph_clauses(file);
     file.close();
   }
 
-  bool minisat(std::string filename, std::string outfile, int timeout,
-               bool output = true) {
+  TernaryBoolean minisat(std::string filename, std::string outfile, int timeout,
+                         bool output = true) {
     int pid = fork();
     int fd;
     if (pid == 0) {
@@ -415,7 +425,8 @@ template <bool isTwoColo, bool edges = false> struct Graph {
         dup2(fd, 1);     // replace standard output with output file
         dup2(fd, 2);
       }
-      execl("./glucose_static", "glucose_static", "-rnd-init", "-rnd-freq=0.1",
+      execl("./glucose_static",
+            "glucose_static", /*"-rnd-init", "-rnd-freq=0.1",*/
             filename.c_str(), outfile.c_str(),
             (char *)0); // Excecute the command
       if (!output) {
@@ -425,15 +436,16 @@ template <bool isTwoColo, bool edges = false> struct Graph {
     int status;
     int ret = waitpid(pid, &status, WNOHANG);
     int k = 0;
-    while (!ret && (k < timeout || timeout == 0)) {
+    while (!ret && (k < 10 * timeout || timeout == 0)) {
       k++;
-      sleep(0.1);
+      usleep(100000);
       ret = waitpid(pid, &status, WNOHANG);
     }
     if (!ret) {
+      // std::cout << k << " " << std::endl;
       kill(pid, SIGINT);
       wait(0);
-      return false;
+      return TernaryBoolean::INDET;
     }
     wait(0);
 
@@ -444,46 +456,127 @@ template <bool isTwoColo, bool edges = false> struct Graph {
     file.close();
 
     if (firstword == "UNSAT") {
-      return false;
+      return TernaryBoolean::FAUX;
     }
-    return true;
+    return TernaryBoolean::VRAI;
   }
-  /*
-    void to_graph(std::string filename, std::string outfile) {
-      std::ifstream ifile;
-      ifile.open(filename);
 
-      std::ofstream ofile;
-      ofile.open(outfile);
-      ofile << "graph {" << '\n';
+  void to_graph(std::string filename, std::string outfile) {
+    std::ifstream ifile;
+    ifile.open(filename);
 
-      int val;
-      for (int i = 0; i < n; i++) {
+    std::ofstream ofile;
+    ofile.open(outfile);
+    ofile << "graph {" << '\n';
+    int val;
+
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < N; j++) {
         ifile >> val;
         if (val > 0) {
-          ofile << "a" + std::to_string(i) + " -- " + "a" +
-                       std::to_string((i + 1) % n)
+          ofile << "a" + std::to_string(i) << "[label=" + std::to_string(j)
+                << "];\n";
+        }
+      }
+    }
+
+    std::vector<std::pair<int, int>> m;
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      m.push_back(std::pair<int, int>(0, 0));
+      int i;
+      ifile >> i;
+      m[vp.index()].first = i;
+    }
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      int i;
+      ifile >> i;
+      m[vp.index()].second = i;
+    }
+
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      if (m[vp.index()].first > 0) {
+        if (m[vp.index()].second > 0) {
+          ofile << "a" + std::to_string(vp.u) + " -- " + "a" +
+                       std::to_string((vp.v))
                 << ";\n";
         } else {
-          ofile << "a" + std::to_string(i) + " -- " + "a" +
-                       std::to_string((i + 1) % n)
+          ofile << "a" + std::to_string(vp.u) + " -- " + "a" +
+                       std::to_string((vp.v))
                 << " [style=dotted];\n";
         }
       }
+    }
 
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < K; j++) {
-          ifile >> val;
-          if (val > 0) {
-            ofile << "a" + std::to_string(i) << "[label=" + std::to_string(j)
-                  << "];\n";
-          }
-        }
-      }
+    ofile << "}\n";
+    ofile.close();
+    ifile.close();
+  }
 
-      ofile << "}\n";
-      ofile.close();
-      ifile.close();
-    }*/
+  void pdf(std::string filename, std::string outfile) {
+    int pid = fork();
+    if (pid == 0) {
+      execl("/usr/bin/dot", "dot", "-Tpdf", filename.c_str(), "-o",
+            outfile.c_str(),
+            (char *)0); // Excecute the command
+    }
+    wait(0);
+  }
+
+  virtual std::string name() {
+    return "graph_" + std::to_string(N) + "_" + std::to_string(K) + "_" +
+           (isTwoColo ? "tc" : "s");
+  }
+
+  TernaryBoolean test(int timeout = 0, bool output = false) {
+    std::string filename = name();
+    generate("result/cnf/" + filename + ".cnf");
+    TernaryBoolean b =
+        minisat("result/cnf/" + filename + ".cnf",
+                "result/sol/" + filename + ".sol", timeout, output);
+    if (b == TernaryBoolean::VRAI) {
+      to_graph("result/sol/" + filename + ".sol",
+               "result/dot/" + filename + ".dot");
+      pdf("result/dot/" + filename + ".dot", "result/pdf/" + filename + ".pdf");
+    }
+    return b;
+  }
+};
+
+template <bool isTwoColo> struct Param<Graph<isTwoColo>> {
+  int Nmax;
+  int n, k;
+  int timeout = 30;
+  Param(int _Nmax) : Nmax(_Nmax), n(1), k(1) {}
+
+  void init() {
+    n = 1;
+    k = 1;
+  }
+
+  Param operator++() {
+    if (k < n) {
+      k++;
+    } else {
+      n++;
+      k = 1;
+    }
+    return *this;
+  }
+
+  int operator[](int i) {
+    if (i == 0) {
+      return n;
+    }
+    if (i == 1) {
+      return k;
+    }
+    return -1;
+  }
+
+  bool is_end() { return n > Nmax; }
+
+  int nb_param() { return 2; }
+
+  Graph<isTwoColo> gen() { return Graph<isTwoColo>(n, k); }
 };
 #endif

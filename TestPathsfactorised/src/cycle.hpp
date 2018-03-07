@@ -28,5 +28,48 @@ template <bool isTwoColo> struct Cycle : public Graph<isTwoColo> {
     }
     file.close();
   }
+
+  virtual std::string name() {
+    return "cycle_" + std::to_string(this->N) + "_" + std::to_string(this->K) +
+           "_" + (isTwoColo ? "tc" : "s") + (an ? "_an" : "");
+  }
+};
+
+template <bool isTwoColo> struct Param<Cycle<isTwoColo>> {
+  int Nmax;
+  int n, k;
+  int timeout = 30;
+  Param(int _Nmax) : Nmax(_Nmax), n(1), k(1) {}
+
+  void init() {
+    n = 1;
+    k = 1;
+  }
+
+  Param operator++() {
+    if (k < n) {
+      k++;
+    } else {
+      n++;
+      k = 1;
+    }
+    return *this;
+  }
+
+  int operator[](int i) {
+    if (i == 0) {
+      return n;
+    }
+    if (i == 1) {
+      return k;
+    }
+    return -1;
+  }
+
+  bool is_end() { return n > Nmax; }
+
+  int nb_param() { return 2; }
+
+  Cycle<isTwoColo> gen() { return Cycle<isTwoColo>(n, k); }
 };
 #endif

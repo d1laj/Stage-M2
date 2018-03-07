@@ -45,9 +45,9 @@ CFLAGS := -std=c11
 # C++ flags
 CXXFLAGS := -std=c++1z
 # C/C++ flags
-CPPFLAGS := -g -Wall -Wextra -pedantic -I src -O2
+CPPFLAGS := -Wall -Wextra -pedantic -I src -O2
 # linker flags
-LDFLAGS := -g
+LDFLAGS := -pthread
 # flags required for dependency generation; passed to compilers
 DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.d
 

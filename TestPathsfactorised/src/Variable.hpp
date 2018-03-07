@@ -93,6 +93,14 @@ struct VertexPair {
     return tmp;
   }
 
+  VertexPair prev() {
+    if (v == 0) {
+      return VertexPair(N, u - 1, N - 1);
+    } else {
+      return VertexPair(N, u, v - 1);
+    }
+  }
+
   bool is_end() { return !(u < N && v < N); }
 
   int index() { return u * N + v - (u + 1) * (u + 2) / 2; }
@@ -188,7 +196,7 @@ template <bool isTwoColo, bool edges = false> struct VariableOffsets {
 
       // NbEdges
       for (VertexPair vp(N); !vp.is_end(); vp++) {
-        for (int i = 0; i < N * (N - 1) / 2; i++) {
+        for (int i = 0; i <= N * (N - 1) / 2; i++) {
           offset++;
         }
       }
@@ -240,7 +248,7 @@ template <bool isTwoColo, bool edges = false> struct VariableOffsets {
   Literal index(VariableType vt, VertexPair vp, int i) {
     switch (vt) {
     case VariableType::NbEdges:
-      return varOffs[to_int(vt)] + vp.index() * N * (N - 1) / 2 + i;
+      return varOffs[to_int(vt)] + vp.index() * (N * (N - 1) / 2 + 1) + i;
       break;
     default:
       return Literal(0);
@@ -369,7 +377,7 @@ template <bool isTwoColo, bool edges = false> struct VariableOffsets {
     if (edges) {
       std::cout << "\nNbEdges\n";
       for (VertexPair vp(N); !vp.is_end(); vp++) {
-        for (int i = 0; i < N * (N - 1) / 2; i++) {
+        for (int i = 0; i <= N * (N - 1) / 2; i++) {
           std::cout << "NbEdges " << vp.u << " " << vp.v << " " << i << " is "
                     << index(VariableType::NbEdges, vp, i) << "\n";
         }
