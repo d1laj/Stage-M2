@@ -72,7 +72,7 @@ template <bool isTwoColo> struct Param<Clique<isTwoColo>> {
   int Nmax;
   int n, m;
   int timeout = 30;
-  Param(int _Nmax) : Nmax(_Nmax), n(1), m(1) {}
+  Param(int _Nmax, int tm = 30) : Nmax(_Nmax), n(1), m(1), timeout(tm) {}
 
   void init() {
     n = 1;

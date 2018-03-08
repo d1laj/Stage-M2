@@ -1,0 +1,25 @@
+graph {
+a0[label=0];
+a1[label=1];
+a2[label=2];
+a3[label=0];
+a4[label=1];
+a5[label=0];
+a6[label=1];
+a7[label=0];
+a8[label=1];
+a9[label=0];
+a10[label=1];
+a11[label=2];
+a0 -- a1 [style=dotted];
+a0 -- a8 [style=dotted];
+a0 -- a11;
+a1 -- a2;
+a2 -- a3;
+a3 -- a4 [style=dotted];
+a4 -- a5 [style=dotted];
+a5 -- a6 [style=dotted];
+a6 -- a7 [style=dotted];
+a8 -- a9 [style=dotted];
+a9 -- a10 [style=dotted];
+}

@@ -10,22 +10,24 @@ template <bool isTwoColo> struct Cycle : public Graph<isTwoColo> {
   void generate(std::string filename) {
     std::ofstream file;
     file.open(filename);
-    this->generate_graph_clauses(file);
 
     for (VertexPair vp(this->N); !vp.is_end(); vp++) {
       if (vp.v - vp.u != 1 && (vp.v != this->N - 1 || vp.u != 0)) {
-        file << -this->vo.index(VariableType::Edge, vp) << End;
+        this->ed[vp.index()] = 4;
       } else {
-        file << this->vo.index(VariableType::Edge, vp) << End;
+        this->ed[vp.index()] = 1;
         if (an) {
           if (vp.u % 2 == 0 && (vp.u != 0 || vp.v != this->N - 1)) {
-            file << this->vo.index(VariableType::EdgeSign, vp) << End;
+            this->ed[vp.index()] = 2;
           } else {
-            file << -this->vo.index(VariableType::EdgeSign, vp) << End;
+            this->ed[vp.index()] = 3;
           }
         }
       }
     }
+
+    this->generate_graph_clauses(file);
+
     file.close();
   }
 
@@ -39,7 +41,7 @@ template <bool isTwoColo> struct Param<Cycle<isTwoColo>> {
   int Nmax;
   int n, k;
   int timeout = 30;
-  Param(int _Nmax) : Nmax(_Nmax), n(1), k(1) {}
+  Param(int _Nmax, int tm = 30) : Nmax(_Nmax), n(1), k(1), timeout(tm) {}
 
   void init() {
     n = 1;

@@ -17,7 +17,11 @@ template <bool isTwoColo, bool edges = false> struct Graph {
   const int N;
   VariableOffsets<isTwoColo, edges> vo;
   const int K;
-  Graph(int _N, int _K) : N(_N), vo(_N), K(_K) {}
+  std::vector<int> ed;
+
+  Graph(int _N, int _K) : N(_N), vo(_N), K(_K) {
+    ed = std::vector<int>(N * (N - 1) / 2, 0);
+  }
 
   void generate_colo_rules(std::ofstream &file) {
     file << "c ---------------------------\n";
@@ -393,6 +397,21 @@ template <bool isTwoColo, bool edges = false> struct Graph {
     }
   }
 
+  void gen_edges(std::ofstream &file) {
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      if (ed[vp.index()] == 1 || ed[vp.index()] == 2 || ed[vp.index()] == 3) {
+        file << vo.index(VariableType::Edge, vp) << End;
+        if (ed[vp.index()] == 2) {
+          file << vo.index(VariableType::EdgeSign, vp) << End;
+        } else if (ed[vp.index()] == 3) {
+          file << -vo.index(VariableType::EdgeSign, vp) << End;
+        }
+      } else if (ed[vp.index()] == 4) {
+        file << -vo.index(VariableType::Edge, vp) << End;
+      }
+    }
+  }
+
   void generate_graph_clauses(std::ofstream &file) {
     file << "p cnf 0 0\n";
     generate_cc_definition(file);
@@ -405,6 +424,7 @@ template <bool isTwoColo, bool edges = false> struct Graph {
     generate_X_definition(file);
     generate_Y_definition(file);
     generate_help(file);
+    gen_edges(file);
   }
 
   virtual void generate(std::string filename) {
@@ -527,17 +547,24 @@ template <bool isTwoColo, bool edges = false> struct Graph {
            (isTwoColo ? "tc" : "s");
   }
 
+  void clean(std::string str) { remove(str.c_str()); }
+
   TernaryBoolean test(int timeout = 0, bool output = false) {
     std::string filename = name();
     generate("result/cnf/" + filename + ".cnf");
+
     TernaryBoolean b =
         minisat("result/cnf/" + filename + ".cnf",
                 "result/sol/" + filename + ".sol", timeout, output);
+
     if (b == TernaryBoolean::VRAI) {
       to_graph("result/sol/" + filename + ".sol",
                "result/dot/" + filename + ".dot");
       pdf("result/dot/" + filename + ".dot", "result/pdf/" + filename + ".pdf");
     }
+
+    clean("result/cnf/" + filename + ".cnf");
+    clean("result/sol/" + filename + ".sol");
     return b;
   }
 };

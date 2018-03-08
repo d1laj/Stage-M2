@@ -1,10 +1,10 @@
 graph {
 a0[label=0];
 a1[label=1];
-a2[label=0];
-a3[label=2];
-a0 -- a1 [style=dotted];
+a2[label=2];
+a3[label=1];
+a0 -- a1;
 a0 -- a3;
 a1 -- a2 [style=dotted];
-a2 -- a3;
+a2 -- a3 [style=dotted];
 }

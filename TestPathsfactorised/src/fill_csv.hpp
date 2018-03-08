@@ -17,13 +17,15 @@ template <class G> struct CSV {
   bool to_save = true;
   std::string filename;
   int nb_values = 0;
+  int max_timeout = 500;
   int nb_thread = 4;
   std::mutex mut_q;
   std::mutex mut_s;
   std::vector<TernaryBoolean> values;
   std::queue<std::pair<int, Param<G>>> left;
 
-  CSV(Param<G> _p, std::string _filename) : p(_p), filename(_filename) {}
+  CSV(Param<G> _p, std::string _filename, int mt = 500, int _nb = 4)
+      : p(_p), filename(_filename), max_timeout(mt), nb_thread(_nb) {}
 
   TernaryBoolean test(Param<G> q) {
     G graph = q.gen();
@@ -31,15 +33,71 @@ template <class G> struct CSV {
   }
 
   void init() {
+    p.init();
+    while (!p.is_end()) {
+      values.push_back(TernaryBoolean::INDET);
+      left.push(std::pair<int, Param<G>>(nb_values, p));
+      ++p;
+      nb_values++;
+    }
     if (p.nb_param() == 2) {
-      p.init();
-      while (!p.is_end()) {
-        values.push_back(TernaryBoolean::INDET);
-        left.push(std::pair<int, Param<G>>(nb_values, p));
-        ++p;
-        nb_values++;
+      std::ifstream file(filename);
+      if (file.is_open()) {
+        Param<G> q = p;
+        q.init();
+        int ind = 0;
+        while (!q.is_end() && !file.eof()) {
+          char c;
+          char virgule;
+          file >> c >> virgule;
+          if (c == '1') {
+            values[ind] = TernaryBoolean::VRAI;
+          }
+          if (c == '0') {
+            values[ind] = TernaryBoolean::FAUX;
+          }
+          if (c == '?') {
+            values[ind] = TernaryBoolean::INDET;
+          }
+          ++q;
+          ind++;
+        }
+        file.close();
+      }
+    } else {
+      std::ifstream file(filename);
+      if (file.is_open()) {
+        Param<G> q = p;
+        q.init();
+        int ind = 0;
+        char c;
+        for (int i = 0; i <= p.nb_param(); i++) {
+          file >> c >> c;
+        }
+
+        while (!q.is_end() && !file.eof()) {
+          for (int i = 0; i <= p.nb_param(); i++) {
+            file >> c >> c;
+          }
+          char c;
+          char virgule;
+          file >> c >> virgule;
+          if (c == '1') {
+            values[ind] = TernaryBoolean::VRAI;
+          }
+          if (c == '0') {
+            values[ind] = TernaryBoolean::FAUX;
+          }
+          if (c == '?') {
+            values[ind] = TernaryBoolean::INDET;
+          }
+          ++q;
+          ind++;
+        }
+        file.close();
       }
     }
+    save();
   }
 
   void save() {
@@ -47,7 +105,7 @@ template <class G> struct CSV {
       Param<G> q = p;
       q.init();
       int index = 0;
-      std::ofstream file;
+      std::fstream file;
       file.open(filename);
       while (!q.is_end()) {
         // std::cout << "x" << std::endl;
@@ -66,6 +124,48 @@ template <class G> struct CSV {
           file << " ?,";
           break;
         }
+        // std::cout << "z" << std::endl;
+        index++;
+        ++q;
+      }
+      file.close();
+    } else {
+
+      Param<G> q = p;
+      q.init();
+      int index = 0;
+      std::ofstream file;
+      file.open(filename);
+
+      file << "N, K, ";
+      for (int i = 0; i <= p.nb_param() - 2; i++) {
+        file << (char)('a' + i) << ", ";
+      }
+      file << "\n";
+
+      while (!q.is_end()) {
+        // std::cout << "x" << std::endl;
+        int l = 0;
+        for (int i = 2; i < q.nb_param(); i++) {
+          l += q[i];
+        }
+        file << q[0] << ", " << q[1] << ", " << q[0] - 1 - l << ", ";
+        for (int i = 2; i < q.nb_param(); i++) {
+          file << q[i] << ", ";
+        }
+        // std::cout << "y" << std::endl;
+        switch (values[index]) {
+        case TernaryBoolean::VRAI:
+          file << " 1,";
+          break;
+        case TernaryBoolean::FAUX:
+          file << " 0,";
+          break;
+        case TernaryBoolean::INDET:
+          file << " ?,";
+          break;
+        }
+        file << "\n";
         // std::cout << "z" << std::endl;
         index++;
         ++q;
@@ -90,20 +190,22 @@ template <class G> struct CSV {
       left.pop();
       mut_q.unlock();
 
-      TernaryBoolean ret = test(pa.second);
-      if (ret == TernaryBoolean::INDET) {
-        pa.second.timeout *= 4;
-        if (pa.second.timeout <= 480) {
-          mut_q.lock();
-          left.push(pa);
-          mut_q.unlock();
+      if (values[pa.first] == TernaryBoolean::INDET) {
+        TernaryBoolean ret = test(pa.second);
+        if (ret == TernaryBoolean::INDET) {
+          pa.second.timeout *= 4;
+          if (pa.second.timeout <= max_timeout) {
+            mut_q.lock();
+            left.push(pa);
+            mut_q.unlock();
+          }
         }
+        // std::cout << ret << " ";
+        mut_s.lock();
+        values[pa.first] = ret;
+        to_save = true;
+        mut_s.unlock();
       }
-      // std::cout << ret << " ";
-      mut_s.lock();
-      values[pa.first] = ret;
-      to_save = true;
-      mut_s.unlock();
     }
   }
 

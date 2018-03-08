@@ -9,15 +9,17 @@ template <bool isTwoColo> struct Path : public Graph<isTwoColo> {
   void generate(std::string filename) {
     std::ofstream file;
     file.open(filename);
-    this->generate_graph_clauses(file);
 
     for (VertexPair vp(this->N); !vp.is_end(); vp++) {
       if (vp.v - vp.u != 1) {
-        file << -this->vo.index(VariableType::Edge, vp) << End;
+        this->ed[vp.index()] = 4;
       } else {
-        file << this->vo.index(VariableType::Edge, vp) << End;
+        this->ed[vp.index()] = 1;
       }
     }
+
+    this->generate_graph_clauses(file);
+
     file.close();
   }
 
@@ -31,7 +33,7 @@ template <bool isTwoColo> struct Param<Path<isTwoColo>> {
   int Nmax;
   int n, k;
   int timeout = 30;
-  Param(int _Nmax) : Nmax(_Nmax), n(1), k(1) {}
+  Param(int _Nmax, int tm = 30) : Nmax(_Nmax), n(1), k(1), timeout(tm) {}
 
   void init() {
     n = 1;
