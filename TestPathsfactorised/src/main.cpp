@@ -38,8 +38,8 @@ int main() {
   // test_cycles();
   cout << "Test\n";
 
-  int cas = 4;
-  int tm = 0;
+  int cas = 8;
+  int tm = 20;
   int nb_threads = 8;
   int N = 25;
   while (nmax <= N || tm <= 320) {
