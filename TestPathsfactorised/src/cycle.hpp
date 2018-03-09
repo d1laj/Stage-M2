@@ -25,7 +25,8 @@ template <bool isTwoColo> struct Cycle : public Graph<isTwoColo> {
         }
       }
     }
-
+    file << this->vo.index(VariableType::EdgeSign, VertexPair(this->N, 0, 1))
+         << End;
     this->generate_graph_clauses(file);
 
     file.close();

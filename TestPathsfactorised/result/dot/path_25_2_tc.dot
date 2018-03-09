@@ -48,4 +48,5 @@ a20 -- a21 [style=dotted];
 a21 -- a22 [style=dotted];
 a22 -- a23 [style=dotted];
 a23 -- a24 [style=dotted];
+c0 -- c1 [style=dotted];
 }

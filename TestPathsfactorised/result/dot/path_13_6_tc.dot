@@ -24,4 +24,12 @@ a8 -- a9;
 a9 -- a10;
 a10 -- a11;
 a11 -- a12;
+c0 -- c1;
+c0 -- c3 [style=dotted];
+c1 -- c2 [style=dotted];
+c1 -- c4 [style=dotted];
+c1 -- c5;
+c2 -- c3 [style=dotted];
+c3 -- c4;
+c3 -- c5;
 }

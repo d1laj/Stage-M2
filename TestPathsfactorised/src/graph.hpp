@@ -242,8 +242,8 @@ template <bool isTwoColo, bool edges = false> struct Graph {
                  << vo.index(VariableType::HomSign, ColorPair(N, cp.j, k))
                  << End;
             file << -vo.index(VariableType::X, cp, k, false)
-                 << -vo.index(VariableType::HomSign, ColorPair(N, cp.i, k))
-                 << vo.index(VariableType::HomSign, ColorPair(N, cp.j, k))
+                 << vo.index(VariableType::HomSign, ColorPair(N, cp.i, k))
+                 << -vo.index(VariableType::HomSign, ColorPair(N, cp.j, k))
                  << End;
 
             file << vo.index(VariableType::X, cp, k, false)
@@ -527,6 +527,33 @@ template <bool isTwoColo, bool edges = false> struct Graph {
       }
     }
 
+    m.clear();
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      m.push_back(std::pair<int, int>(0, 0));
+      int i;
+      ifile >> i;
+      m[vp.index()].first = i;
+    }
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      int i;
+      ifile >> i;
+      m[vp.index()].second = i;
+    }
+
+    for (VertexPair vp(N); !vp.is_end(); vp++) {
+      if (m[vp.index()].first > 0) {
+        if (m[vp.index()].second > 0) {
+          ofile << "c" + std::to_string(vp.u) + " -- " + "c" +
+                       std::to_string((vp.v))
+                << ";\n";
+        } else {
+          ofile << "c" + std::to_string(vp.u) + " -- " + "c" +
+                       std::to_string((vp.v))
+                << " [style=dotted];\n";
+        }
+      }
+    }
+
     ofile << "}\n";
     ofile.close();
     ifile.close();
@@ -549,7 +576,8 @@ template <bool isTwoColo, bool edges = false> struct Graph {
 
   void clean(std::string str) { remove(str.c_str()); }
 
-  TernaryBoolean test(int timeout = 0, bool output = false) {
+  TernaryBoolean test(int timeout = 0, bool output = false,
+                      bool cleanup = true) {
     std::string filename = name();
     generate("result/cnf/" + filename + ".cnf");
 
@@ -562,9 +590,10 @@ template <bool isTwoColo, bool edges = false> struct Graph {
                "result/dot/" + filename + ".dot");
       pdf("result/dot/" + filename + ".dot", "result/pdf/" + filename + ".pdf");
     }
-
-    clean("result/cnf/" + filename + ".cnf");
-    clean("result/sol/" + filename + ".sol");
+    if (cleanup) {
+      clean("result/cnf/" + filename + ".cnf");
+      clean("result/sol/" + filename + ".sol");
+    }
     return b;
   }
 };

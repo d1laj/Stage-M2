@@ -7,6 +7,9 @@ a4[label=1];
 a0 -- a1;
 a0 -- a4;
 a1 -- a2;
-a2 -- a3 [style=dotted];
+a2 -- a3;
 a3 -- a4;
+c0 -- c1;
+c0 -- c2;
+c1 -- c2;
 }

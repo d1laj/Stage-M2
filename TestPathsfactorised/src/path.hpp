@@ -19,6 +19,8 @@ template <bool isTwoColo> struct Path : public Graph<isTwoColo> {
     }
 
     this->generate_graph_clauses(file);
+    file << this->vo.index(VariableType::EdgeSign, VertexPair(this->N, 0, 1))
+         << End;
 
     file.close();
   }

@@ -4,5 +4,8 @@ a1[label=1];
 a2[label=2];
 a0 -- a1 [style=dotted];
 a0 -- a2 [style=dotted];
-a1 -- a2 [style=dotted];
+a1 -- a2;
+c0 -- c1 [style=dotted];
+c0 -- c2 [style=dotted];
+c1 -- c2;
 }

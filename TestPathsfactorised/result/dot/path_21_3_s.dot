@@ -21,8 +21,8 @@ a18[label=1];
 a19[label=0];
 a20[label=1];
 a0 -- a1 [style=dotted];
-a1 -- a2;
-a2 -- a3;
+a1 -- a2 [style=dotted];
+a2 -- a3 [style=dotted];
 a3 -- a4 [style=dotted];
 a4 -- a5 [style=dotted];
 a5 -- a6 [style=dotted];
@@ -40,4 +40,7 @@ a16 -- a17 [style=dotted];
 a17 -- a18 [style=dotted];
 a18 -- a19 [style=dotted];
 a19 -- a20 [style=dotted];
+c0 -- c1 [style=dotted];
+c0 -- c2 [style=dotted];
+c1 -- c2 [style=dotted];
 }

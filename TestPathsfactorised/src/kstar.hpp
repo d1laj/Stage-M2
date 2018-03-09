@@ -4,9 +4,9 @@
 #include "graph.hpp"
 
 template <bool isTwoColo, int k> struct KStarPath : public Graph<isTwoColo> {
-  std::array<int, k - 1> legs;
+  std::vector<int> legs;
 
-  KStarPath(int _N, int _K, std::array<int, k - 1> _legs)
+  KStarPath(int _N, int _K, std::vector<int> _legs)
       : Graph<isTwoColo>(_N, _K), legs(_legs) {}
 
   void generate(std::string filename) {
@@ -72,16 +72,16 @@ template <bool isTwoColo, int k> struct KStarPath : public Graph<isTwoColo> {
 template <bool isTwoColo, int k> struct Param<KStarPath<isTwoColo, k>> {
   int Nmax;
   int n, p;
-  std::array<int, k - 1> legs;
-  int timeout = 30;
+  std::vector<int> legs;
+  int timeout;
 
   Param(int _Nmax, int tm = 30) : Nmax(_Nmax), n(1), p(1), timeout(tm) {}
 
   void init() {
     n = 1;
     p = 1;
-    for (int i = 0; i < k; i++) {
-      legs[i] = 0;
+    for (int i = 0; i < k - 1; i++) {
+      legs.push_back(0);
     }
   }
 
@@ -105,7 +105,7 @@ template <bool isTwoColo, int k> struct Param<KStarPath<isTwoColo, k>> {
       }
     }
 
-    for (int j = 2; j < k + 2; j++) {
+    for (int j = 2; j < k + 1; j++) {
       l += (*this)[j];
     }
     l += (*this)[2];

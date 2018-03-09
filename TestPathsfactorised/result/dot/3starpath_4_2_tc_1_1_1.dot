@@ -6,4 +6,5 @@ a3[label=1];
 a0 -- a1 [style=dotted];
 a0 -- a2 [style=dotted];
 a0 -- a3 [style=dotted];
+c0 -- c1 [style=dotted];
 }

@@ -16,4 +16,8 @@ a4 -- a5 [style=dotted];
 a5 -- a6 [style=dotted];
 a6 -- a7 [style=dotted];
 a7 -- a8 [style=dotted];
+c0 -- c1 [style=dotted];
+c0 -- c3 [style=dotted];
+c1 -- c2 [style=dotted];
+c2 -- c3;
 }

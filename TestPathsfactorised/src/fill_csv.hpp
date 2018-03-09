@@ -52,12 +52,12 @@ template <class G> struct CSV {
           file >> c >> virgule;
           if (c == '1') {
             values[ind] = TernaryBoolean::VRAI;
-          }
-          if (c == '0') {
+          } else if (c == '0') {
             values[ind] = TernaryBoolean::FAUX;
-          }
-          if (c == '?') {
+          } else if (c == '?') {
             values[ind] = TernaryBoolean::INDET;
+          } else {
+            std::cout << "bug : " << c << '\n';
           }
           ++q;
           ind++;
@@ -72,24 +72,29 @@ template <class G> struct CSV {
         int ind = 0;
         char c;
         for (int i = 0; i <= p.nb_param(); i++) {
-          file >> c >> c;
+          file >> c;
+          // std::cout << c;
+          file >> c;
+          // std::cout << c;
         }
 
         while (!q.is_end() && !file.eof()) {
+          int c1;
           for (int i = 0; i <= p.nb_param(); i++) {
-            file >> c >> c;
+            file >> c1 >> c;
+            // std::cout << c1 << c << " | ";
           }
           char c;
           char virgule;
           file >> c >> virgule;
           if (c == '1') {
             values[ind] = TernaryBoolean::VRAI;
-          }
-          if (c == '0') {
+          } else if (c == '0') {
             values[ind] = TernaryBoolean::FAUX;
-          }
-          if (c == '?') {
+          } else if (c == '?') {
             values[ind] = TernaryBoolean::INDET;
+          } else {
+            std::cout << "bug : " << c << "|" << virgule << '\n';
           }
           ++q;
           ind++;
@@ -225,6 +230,9 @@ template <class G> struct CSV {
       // std::cout << "l" << std::endl;
       mut_q.lock();
       std::cout << left.size() << "\n";
+      if (false && left.size()) {
+        std::cout << left.front().second.timeout << "\n";
+      }
       mut_q.unlock();
 
       mut_s.lock();

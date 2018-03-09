@@ -30,4 +30,11 @@ a9 -- a10;
 a11 -- a12;
 a12 -- a13;
 a13 -- a14 [style=dotted];
+c0 -- c1;
+c0 -- c2 [style=dotted];
+c0 -- c3;
+c0 -- c4;
+c1 -- c2 [style=dotted];
+c1 -- c3;
+c3 -- c4 [style=dotted];
 }

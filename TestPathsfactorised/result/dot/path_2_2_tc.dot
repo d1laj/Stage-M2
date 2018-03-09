@@ -2,4 +2,5 @@ graph {
 a0[label=0];
 a1[label=1];
 a0 -- a1 [style=dotted];
+c0 -- c1 [style=dotted];
 }

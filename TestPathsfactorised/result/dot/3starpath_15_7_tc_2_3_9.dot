@@ -28,4 +28,15 @@ a8 -- a9 [style=dotted];
 a10 -- a11 [style=dotted];
 a11 -- a12;
 a13 -- a14;
+c0 -- c1 [style=dotted];
+c0 -- c5 [style=dotted];
+c0 -- c6;
+c1 -- c2;
+c1 -- c3 [style=dotted];
+c1 -- c6;
+c2 -- c4;
+c3 -- c5;
+c4 -- c5 [style=dotted];
+c4 -- c6 [style=dotted];
+c5 -- c6;
 }

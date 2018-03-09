@@ -20,4 +20,6 @@ a6 -- a7;
 a7 -- a8;
 a8 -- a9;
 a9 -- a10;
+c0 -- c1;
+c1 -- c2 [style=dotted];
 }
