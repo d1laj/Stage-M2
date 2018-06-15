@@ -5,7 +5,7 @@
 
 using namespace std;
 
-constexpr int nmax = 6;
+constexpr int nmax = 20;
 
 void test_graph() {
   int n;
@@ -26,11 +26,12 @@ void test_graph() {
 int compute() {
   // int kglob = 1;
   int count = 0;
-
-  for (int n = 4; n <= nmax; n++) {
+  int prediction = 7;
+  for (int n = 14; n <= nmax; n++) {
     cout << "\n\n" << n << "\n\n";
-    graph::Graph G(n);
+    Cycle G(n);
 
+    cout << "prediction : " << prediction << '\n';
     while (!G.end) {
       count++;
       if (!G.is_first_of_class()) {
@@ -41,20 +42,26 @@ int compute() {
       }
       // cout << G << "\n";
       if (true) {
-        int k = G.achrom_signed_min();
-        int l = G.achrom_signed();
+        int k = G.achrom_signed_min(prediction);
+        prediction = k + 1;
+        // int l = G.achrom_signed();
         // int j = G.achrom_signed_max();
         // int l = G.get_clash_signed().achrom();
-        if (true && k < l) {
+        if (true) {
           cout << G;
-          cout << k << " " << l << "\n\n";
-          cout << count << '\n';
+          cout << k << "\n\n";
+          // cout << count << '\n';
         }
+      } else if (false) {
+        int k = G.achrom();
+        G.max_achrom_moins_une_edge(k);
       }
       // cout << k << '\n';
       // cout << "------------------------\n";
       ++G;
     }
+    prediction++;
+    n++;
   }
   return 0;
 }

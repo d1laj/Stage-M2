@@ -34,15 +34,15 @@ void test_cycles() {
 }
 
 int main() {
-  int nmax = 5;
+  int nmax = 25;
   // test_cycles();
   cout << "Test\n";
 
-  int cas = 8;
-  int tm = 20;
+  int cas = 1;
+  int tm = 0;
   int nb_threads = 8;
   int N = 25;
-  while (nmax <= N || tm <= 320) {
+  while (true && (nmax <= N || tm <= 320)) {
     int mtm = (tm == 320 ? 1281 : 4 * tm);
     std::cout << "nmax = " << nmax << " cas " << cas << " tm " << tm << " mtm "
               << mtm << "\n";
@@ -70,12 +70,12 @@ int main() {
     } break;
 
     case 4: {
-      CSV<KStarPath<true, 3>> csv(Param<KStarPath<true, 3>>(nmax * 2 / 3, tm),
+      CSV<KStarPath<true, 3>> csv(Param<KStarPath<true, 3>>(nmax, tm),
                                   "result/3star_tc.csv", mtm, nb_threads);
       csv.run();
     } break;
     case 5: {
-      CSV<KStarPath<false, 3>> csv(Param<KStarPath<false, 3>>(nmax * 2 / 3, tm),
+      CSV<KStarPath<false, 3>> csv(Param<KStarPath<false, 3>>(nmax, tm),
                                    "result/3star_s.csv", mtm, nb_threads);
       csv.run();
     } break;
@@ -102,7 +102,8 @@ int main() {
       csv.run();
     } break;
     default:
-      CSV<Path<true>> csv(Param<Path<true>>(15), "result/path_tc_test.csv");
+      CSV<KStarPath<true, 3>> csv(Param<KStarPath<true, 3>>(15),
+                                  "result/path_tc_test.csv");
       csv.run();
       break;
     }
@@ -116,6 +117,9 @@ int main() {
       tm *= 4;
     }
   }
+
+  // KStarPath<true, 3> S(14, 8, std::vector<int>{5, 4, 4});
+  // S.generate("test.cnf");
 
   // Clique<false> P(3, 1);
   // P.vo.test_indices();

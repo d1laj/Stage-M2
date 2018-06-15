@@ -426,6 +426,28 @@ struct Graph {
     return -1;
   }
 
+  int achrom(int m) {
+    for (int i = m; i >= 0; i--) {
+      // std::cout << "-------" << i << "--------\n";
+      if (has_complete(i)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  int achrom_fast_for_min(int m) {
+    int max_found = -1;
+    for (int i = 1; i <= m; i++) {
+      // std::cout << "-------" << i << "--------\n";
+      if (has_complete(i)) {
+        // std::cout << "i= " << i << "\n";
+        max_found = i;
+      }
+    }
+    return (max_found == -1 ? m : max_found);
+  }
+
   int achrom_signed_base() {
     for (int i = n; i >= 0; i--) {
       // std::cout << "-------" << i << "--------\n";
@@ -436,15 +458,18 @@ struct Graph {
     return -1;
   }
 
-  int achrom_signed_min() {
+  int achrom_signed_min(int m = -1) {
     std::vector<bool> switching;
     for (int i = 0; i < n; i++) {
       switching.push_back(false);
     }
-    int k_min = n + 1;
+    int k_min = (m == -1 ? n : m);
     bool stop = false;
+    int count = 0;
     while (!stop) {
-      int k = achrom();
+      std::cout << '#' << count << " " << k_min << '\r' << std::flush;
+      count++;
+      int k = achrom_fast_for_min(k_min);
       k_min = min(k_min, k);
 
       for (int i = n - 1; i >= 0; i--) {
